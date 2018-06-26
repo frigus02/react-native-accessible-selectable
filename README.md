@@ -1,5 +1,7 @@
 # React Native Accessible Selectable
 
+[![npm](https://img.shields.io/npm/v/react-native-accessible-selectable.svg)](https://www.npmjs.com/package/react-native-accessible-selectable)
+
 > Helpers to build accessible selectable components like checkboxes or radio buttons in React Native
 
 **The Problem:**
