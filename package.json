@@ -1,0 +1,22 @@
+{
+  "name": "react-native-accessible-selectable",
+  "version": "1.0.0",
+  "description": "Helpers to build accessible selectable components like checkboxes or radio buttons in React Native",
+  "main": "index.js",
+  "keywords": [
+    "react-native"
+  ],
+  "scripts": {
+    "flow": "flow ."
+  },
+  "author": "Jan Kuehle <jkuehle90@gmail.com>",
+  "license": "MIT",
+  "peerDependencies": {
+    "react-native": "^0.55.4"
+  },
+  "devDependencies": {
+    "flow-bin": "0.67.1",
+    "react": "16.3.1",
+    "react-native": "0.55.4"
+  }
+}
