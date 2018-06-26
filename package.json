@@ -1,16 +1,24 @@
 {
   "name": "react-native-accessible-selectable",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "Helpers to build accessible selectable components like checkboxes or radio buttons in React Native",
   "main": "index.js",
-  "keywords": [
-    "react-native"
-  ],
   "scripts": {
     "flow": "flow ."
   },
+  "keywords": [
+    "react-native"
+  ],
   "author": "Jan Kuehle <jkuehle90@gmail.com>",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/frigus02/react-native-accessible-selectable.git"
+  },
+  "bugs": {
+    "url": "https://github.com/frigus02/react-native-accessible-selectable/issues"
+  },
+  "homepage": "https://github.com/frigus02/react-native-accessible-selectable",
   "peerDependencies": {
     "react-native": "^0.55.4"
   },
