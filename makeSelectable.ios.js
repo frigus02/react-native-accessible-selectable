@@ -25,3 +25,5 @@ const makeSelectable = <Props: {}>(
             return <Component {...this.props} ref={this.componentRef} />;
         }
     };
+
+export default makeSelectable;

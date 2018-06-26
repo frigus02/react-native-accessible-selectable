@@ -28,6 +28,8 @@ const makeSelectable = <Props: {}>(
                     accessibleComponentType: nextProps.accessibleComponentType
                 };
             }
+
+            return null;
         }
 
         onPress = () => {
@@ -40,12 +42,10 @@ const makeSelectable = <Props: {}>(
                 accessibleComponentType: newType
             });
 
-            if (newType === "radiobutton_checked") {
-                UIManager.sendAccessibilityEvent(
-                    findNodeHandle(this),
-                    UIManager.AccessibilityEventTypes.typeViewClicked
-                );
-            }
+            UIManager.sendAccessibilityEvent(
+                findNodeHandle(this),
+                UIManager.AccessibilityEventTypes.typeViewClicked
+            );
 
             if (this.props.onPress) {
                 // $FlowFixMe
@@ -63,3 +63,5 @@ const makeSelectable = <Props: {}>(
             );
         }
     };
+
+export default makeSelectable;
