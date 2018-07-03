@@ -7,7 +7,9 @@ export default class CheckBox extends React.Component {
     };
 
     onPress = () => {
-        this.setState({ checked: !this.state.checked });
+        setTimeout(() => {
+            this.setState({ checked: !this.state.checked });
+        }, 75);
     };
 
     render() {

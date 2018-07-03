@@ -6,6 +6,7 @@ export default class App extends React.Component {
     render() {
         return (
             <View style={styles.container}>
+                <Text>CheckBox</Text>
                 <CheckBox>
                     <Text>1</Text>
                 </CheckBox>
