@@ -7,10 +7,10 @@ export default class App extends React.Component {
         return (
             <View style={styles.container}>
                 <Text>CheckBox</Text>
-                <CheckBox>
+                <CheckBox delay={50}>
                     <Text>1</Text>
                 </CheckBox>
-                <CheckBox>
+                <CheckBox delay={75}>
                     <Text>2</Text>
                 </CheckBox>
             </View>

@@ -9,7 +9,7 @@ export default class CheckBox extends React.Component {
     onPress = () => {
         setTimeout(() => {
             this.setState({ checked: !this.state.checked });
-        }, 75);
+        }, this.props.delay || 75);
     };
 
     render() {

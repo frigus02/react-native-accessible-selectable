@@ -6,13 +6,27 @@
 
 **The Problem:**
 
-On double tap VoiceOver will read the content of the focused element. When you try to build a custom checkbox and make it accessible, you probably want to add `selected` to the `accessibilityTraits`, depending on whether the checkbox is currently checked or not. This works well on focus. VoiceOver will announce the state of your component. But on double tap it will first read the old state and then the new one. This can be quite confusing for users.
+On double tap VoiceOver reads the content of the focused element. When you try to build a custom checkbox and make it accessible, you probably want to add `selected` to the `accessibilityTraits`, depending on whether the checkbox is currently checked or not. This will work well in the beginning. You will hear VoiceOver say the following (assuming your component also has the `button` trait:
 
-The underlying problem is, that the decision to change the state from "not selected" to "selected" (or vice versa) is done in JavaScript and runs asynchronously after the tap. So VoiceOver will start to read before the state has changed.
+- focus an unselected checkbox: LABEL, "button"
+- toggle an unselected checkbox: "selected", LABEL
+- focus a selected checkbox: "selected", LABEL, "button"
+- toggle a selected checkbox: LABEL
+
+However, as your app gets more complex you might notice VoiceOver that seems to mess up your labels, saying the following instead:
+
+- focus an unselected checkbox: LABEL, "button"
+- toggle an unselected checkbox: LABEL, "button", "selected", LABEL
+- focus a selected checkbox: "selected", LABEL, "button"
+- toggle a selected checkbox: "selected", LABEL, "button", LABEL
+
+Why? Through testing I found that if you change your components state ~75ms - 1000ms after the double tab, VoiceOver already started reading the current state of your component. It finishes reading the current state and then reads the changed state. Confusing 🤔.
+
+While you should probably do other optimizations when your app takes 1 second to rerender, 75ms is still in an acceptable range.
 
 **The Solution:**
 
-This library solves this problem by toggling the "selected" state natively. All you need to do to use it, is to wrap your component in a call to `makeSelectable`. The downside is, that you cannot cancel the toggle anymore. Your component will now have the same restriction as the native [Switch](https://facebook.github.io/react-native/docs/switch.html) component.
+This library solves this problem by toggling the "selected" state immediately on the native side. All you need to do to use it, is to wrap your component in a call to `makeSelectable`. The downside is, that you cannot cancel the toggle anymore. Your component will now have the same restriction as the native [Switch](https://facebook.github.io/react-native/docs/switch.html) component.
 
 This problem is inherent for VoiceOver. TalkBack does not have this issue because it does not read the currently focused element's content on double tap. However it also does not give any feedback when toggling between `radiobutton_checked` and `radiobutton_unchecked` state. This library implements the suggestion from the [React Native accessibility docs](http://facebook.github.io/react-native/docs/accessibility.html#sending-accessibility-events-android) and sends a manual click event to accounce this state change.
 
