@@ -70,7 +70,7 @@ type Props = {
     onChange: () => void
 };
 
-class MyCheckBox extends React.PureComponent<Props> {
+class MyCheckbox extends React.PureComponent<Props> {
     render() {
         const { label, checked, onChange } = this.props;
 
