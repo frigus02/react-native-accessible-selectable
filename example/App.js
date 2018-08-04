@@ -1,18 +1,18 @@
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
-import CheckBox from "./CheckBox";
+import Checkbox from "./Checkbox";
 
 export default class App extends React.Component {
     render() {
         return (
             <View style={styles.container}>
-                <Text>CheckBox</Text>
-                <CheckBox delay={50}>
+                <Text>Checkbox</Text>
+                <Checkbox delay={50}>
                     <Text>1</Text>
-                </CheckBox>
-                <CheckBox delay={75}>
+                </Checkbox>
+                <Checkbox delay={75}>
                     <Text>2</Text>
-                </CheckBox>
+                </Checkbox>
             </View>
         );
     }

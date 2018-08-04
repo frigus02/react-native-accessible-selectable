@@ -1,7 +1,7 @@
 import React from "react";
 import { Text, TouchableOpacity } from "react-native";
 
-export default class CheckBox extends React.Component {
+export default class Checkbox extends React.Component {
     state = {
         checked: false
     };
@@ -22,7 +22,7 @@ export default class CheckBox extends React.Component {
                 onPress={this.onPress}
                 style={{ width: "50%", margin: 4 }}
             >
-                <Text>CheckBox</Text>
+                <Text>Checkbox</Text>
                 {this.props.children}
                 <Text accessibilityLabel="">
                     ({checked ? "checked" : "not checked"})
