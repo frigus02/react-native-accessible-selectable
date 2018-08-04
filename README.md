@@ -16,9 +16,9 @@ On double tap VoiceOver reads the content of the focused element. When you try t
 However, as your app gets more complex you might notice VoiceOver that seems to mess up your labels, saying the following instead:
 
 - focus an unselected checkbox: LABEL, "button"
-- toggle an unselected checkbox: LABEL, "button", "selected", LABEL
+- toggle an unselected checkbox: LABEL, "selected", LABEL, "button"
 - focus a selected checkbox: "selected", LABEL, "button"
-- toggle a selected checkbox: "selected", LABEL, "button", LABEL
+- toggle a selected checkbox: "selected", LABEL, LABEL, "button"
 
 Why? Through testing I found that if you change your components state ~75ms - 1000ms after the double tab, VoiceOver already started reading the current state of your component. It finishes reading the current state and then reads the changed state. Confusing 🤔.
 
